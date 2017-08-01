@@ -19,7 +19,7 @@ parseReceived () {
 	if [ "$cmd" == "expled" ]; then
 		handleExpLed $argument
 	fi
-	## extend this 'if' statement with your custom command that calls your very own handler function
+	## YOUR TURN: extend this 'if' statement with your custom command that calls your very own handler function
 }
 
 # program the Expansion Dock LED - handler for the 'expled' command
@@ -31,7 +31,7 @@ handleExpLed () {
 	fi
 }
 
-## add your own handler functions
+## YOUR TURN: add your own handler functions
 
 
 # main script - loop reading stdin

@@ -1,12 +1,14 @@
 #!/bin/sh
 
+## script to parse JSON commands received from the Losant Cloud Platform
+
 # include the json sh library
 . /usr/share/libubox/jshn.sh
 
 # function to parse messages received from Losant
 parseReceived () {
 	# parse received json
-	json_init 
+	json_init
 	json_load $1
 
 	# read the command and arguments
@@ -16,10 +18,11 @@ parseReceived () {
 	# take action based on the command
 	if [ "$cmd" == "expled" ]; then
 		handleExpLed $argument
-	fi	
+	fi
+	## extend this 'if' statement with your custom command that calls your very own handler function
 }
 
-# program the Expansion Dock LED
+# program the Expansion Dock LED - handler for the 'expled' command
 handleExpLed () {
 	# only call expled if an argument is present
 	colour="$1"
@@ -28,9 +31,11 @@ handleExpLed () {
 	fi
 }
 
-# loop reading stdin
+## add your own handler functions
+
+
+# main script - loop reading stdin
 while read input
 do
-	parseReceived $input	
+	parseReceived $input
 done
-
